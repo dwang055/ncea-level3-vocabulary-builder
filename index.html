@@ -3441,7 +3441,7 @@ function renderQuestion() {
     quizHintDiv.style.cssText = 'font-size: 0.95rem; color: var(--muted); margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--s20); line-height: 1.5;';
     quizHintDiv.innerHTML = entry.quote_zh || '';
     document.getElementById('quizSentence').parentNode.appendChild(quizHintDiv);
-    document.getElementById('quizSentence').parentNode.appendChild(quizZhDiv);
+    
 
     const group = GROUPS[S.gIdx];
     const distractors = shuffle(group.map(w => w.word).filter(w => w !== entry.word)).slice(0, 3);
@@ -3494,7 +3494,7 @@ function renderQuizSpell(entry) {
   }
   const inp = document.getElementById('qSpellInput');
   inp.value = '';
-  inp.placeholder = word.length + ' letters';
+  inp.placeholder = word.length + ' characters';
   const fb = document.getElementById('qSpellFeedback');
   fb.style.display = 'none';
   fb.className = 'quiz-feedback';
