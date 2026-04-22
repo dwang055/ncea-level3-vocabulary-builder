@@ -33,37 +33,6 @@
   --gold10:   rgba(240,192,64,.10);
   --gold50:   rgba(240,192,64,.50);
 }
-  /*** BRIGHT MODE (light-mode) VARIABLES ***/
-  body[data-theme="light"] {
-    --bg:       #f8fafb;
-    --panel:    #ffffff;
-    --panel2:   #f0f5f7;
-    --stroke:   #0066cc;
-    --text:     #1a1a1a;
-    --muted:    #555555;
-    --muted2:   #888888;
-    --bad:      #d32f2f;
-    --good:     #2e7d32;
-    --gold:     #f57f17;
-    --gold2:    #fbc02d;
-    --s35:      rgba(0,102,204,.35);
-    --s60:      rgba(0,102,204,.60);
-    --s20:      rgba(0,102,204,.20);
-    --o15:      rgba(0,0,0,.08);
-    --o25:      rgba(0,0,0,.15);
-    --panel-a:  rgba(255,255,255,.95);
-    --good15:   rgba(46,125,50,.10);
-    --good60:   rgba(46,125,50,.60);
-    --bad12:    rgba(211,47,47,.10);
-    --bad55:    rgba(211,47,47,.55);
-    --gold10:   rgba(245,127,23,.10);
-    --gold50:   rgba(245,127,23,.50);
-  }
-  
-  body {
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-
 *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
 html { scroll-behavior: smooth; }
 body {
@@ -240,7 +209,6 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   letter-spacing: .02em;
   line-height: 1;
   text-shadow: 0 0 20px rgba(240,192,64,.2);
-  text-align: left;
 }
 .pron-row {
   display: flex;
@@ -286,7 +254,6 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   font-size: 1.1rem;
   line-height: 1.6;
   color: rgba(231,251,255,.9);
-  text-align: left;
 }
 .def-zh {
   font-size: 1.08rem;
@@ -294,7 +261,6 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   color: var(--muted);
   margin-top: 4px;
   font-weight: 500;
-  text-align: left;
 }
 .sentence-tab-row {
   display: flex;
@@ -328,7 +294,6 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   line-height: 1.85;
   color: rgba(231,251,255,.88);
   font-style: italic;
-  text-align: left;
 }
 .sent-zh {
   font-size: 1.05rem;
@@ -338,7 +303,6 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   font-weight: 400;
   padding-top: 12px;
   border-top: 1px solid var(--s20);
-  text-align: left;
 }
 .sent-en .hl {
   font-style: normal;
@@ -347,6 +311,13 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   background: rgba(240,192,64,.08);
   border-radius: 3px;
   padding: 0 2px;
+}
+.sent-source {
+  margin-top: 10px;
+  font-size: 0.7rem;
+  color: var(--muted2);
+  text-align: right;
+  letter-spacing: .04em;
 }
 .quiz-phase-label {
   font-size: .72rem;
@@ -871,6 +842,7 @@ footer {
   #printContainer { display: block !important; position: absolute; inset: 0; background: white; }
 }
 
+
 .flashcard-container {
   display: none;
   padding: 20px;
@@ -924,7 +896,6 @@ footer {
   color: var(--good);
   margin-bottom: 8px;
   text-shadow: 0 0 20px rgba(110,247,200,.15);
-  text-align: center;
 }
 .flashcard-pron {
   font-size: 0.9rem;
@@ -937,7 +908,7 @@ footer {
   display: block;
   font-size: 0.85rem;
   font-weight: 700;
-  color: #0a8a5e;
+  color: #6ef7c8;
   background: rgba(110, 247, 200, 0.1);
   border: 1px solid rgba(110, 247, 200, 0.3);
   border-radius: 4px;
@@ -980,12 +951,6 @@ footer {
   font-weight: 700 !important;
   margin: 0 4px !important;
 }
-body[data-theme="light"] .badge-pos {
-  color: #0a8a5e !important;
-  background: rgba(10, 138, 94, 0.1) !important;
-  border-color: rgba(10, 138, 94, 0.4) !important;
-}
-
 .flashcard-hear:hover {
   background: var(--good25);
   border-color: var(--good);
@@ -1056,214 +1021,9 @@ body[data-theme="light"] .badge-pos {
   cursor: not-allowed;
 }
 
-/* THEME TOGGLE BUTTON */
-.theme-toggle-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(122,208,224,.15);
-  border: 1px solid rgba(122,208,224,.5);
-  color: #6ef7c8;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.theme-toggle-btn:hover {
-  background: rgba(122,208,224,.25);
-  border-color: rgba(122,208,224,.8);
-  transform: scale(1.1);
-}
-
-/* LIGHT MODE - FULL UI (improved contrast) */
-body[data-theme="light"] {
-  background: #f8f6f1 !important;
-  color: #1a1a1a !important;
-}
-body[data-theme="light"] .book-app,
-body[data-theme="light"] .app-container,
-body[data-theme="light"] .creator-wrap {
-  background: #f8f6f1 !important;
-  color: #1a1a1a !important;
-}
-body[data-theme="light"] .book-header,
-body[data-theme="light"] .book-title,
-body[data-theme="light"] .tab-content,
-body[data-theme="light"] .section,
-body[data-theme="light"] .card,
-body[data-theme="light"] .panel {
-  background: #ffffff !important;
-  border-color: #d0d5cc !important;
-  color: #1a1a1a !important;
-}
-body[data-theme="light"] h1,
-body[data-theme="light"] h2,
-body[data-theme="light"] h3,
-body[data-theme="light"] .book-header h1 {
-  color: #1e7a2f !important;
-  text-shadow: 0 0 22px rgba(30,122,47,.12) !important;
-}
-body[data-theme="light"] p,
-body[data-theme="light"] .tagline,
-body[data-theme="light"] .description {
-  color: #2c2c2c !important;
-}
-body[data-theme="light"] input,
-body[data-theme="light"] textarea,
-body[data-theme="light"] select {
-  background: #f4f2eb !important;
-  border-color: #d0d5cc !important;
-  color: #1a1a1a !important;
-}
-body[data-theme="light"] input:focus,
-body[data-theme="light"] textarea:focus,
-body[data-theme="light"] select:focus {
-  border-color: #1e7a2f !important;
-  background: #f0f4f0 !important;
-  box-shadow: 0 0 0 3px rgba(30,122,47,.15) !important;
-}
-body[data-theme="light"] button,
-body[data-theme="light"] .btn {
-  background: rgba(30,122,47,.13) !important;
-  border-color: rgba(30,122,47,.5) !important;
-  color: #1e7a2f !important;
-}
-body[data-theme="light"] button:hover,
-body[data-theme="light"] .btn:hover {
-  background: rgba(30,122,47,.24) !important;
-}
-body[data-theme="light"] .theme-toggle-btn {
-  background: rgba(44,102,73,.12) !important;
-  border-color: rgba(44,102,73,.45) !important;
-  color: #1e7a2f !important;
-}
-body[data-theme="light"] .theme-toggle-btn:hover {
-  background: rgba(44,102,73,.25) !important;
-  transform: scale(1.08);
-}
-body[data-theme="light"] .tab-btn {
-  border-color: #e2e7df !important;
-  color: #4a4a4a !important;
-}
-body[data-theme="light"] .tab-btn.active {
-  background: rgba(30,122,47,.09) !important;
-  border-bottom-color: #1e7a2f !important;
-  color: #1e7a2f !important;
-}
-/* Word cards and flashcards – light background, dark text */
-body[data-theme="light"] .word-card,
-body[data-theme="light"] .flashcard,
-body[data-theme="light"] .flip-card,
-body[data-theme="light"] .flashcard-inner,
-body[data-theme="light"] .word-card-top,
-body[data-theme="light"] .definition-block,
-body[data-theme="light"] .sentence-tab-row,
-body[data-theme="light"] .sentence-content,
-body[data-theme="light"] .my-sentences-block {
-  background: #ffffff !important;
-  border-color: #d0d5cc !important;
-  color: #1a1a1a !important;
-}
-body[data-theme="light"] .word-display {
-  color: #0d0d0d !important;
-  text-shadow: none !important;
-}
-body[data-theme="light"] .pron-text,
-body[data-theme="light"] .pron-row {
-  color: #3a3a3a !important;
-}
-body[data-theme="light"] .def-en {
-  color: #1a1a1a !important;
-}
-body[data-theme="light"] .def-zh {
-  color: #3a3a3a !important;
-}
-body[data-theme="light"] .sent-en {
-  color: #1a1a1a !important;
-}
-body[data-theme="light"] .sent-zh {
-  color: #3a3a3a !important;
-}
-body[data-theme="light"] .synan-block,
-body[data-theme="light"] .synan-group {
-  background: #faf9f5 !important;
-  border-color: #e2e7df !important;
-}
-body[data-theme="light"] .synan-chips {
-  background: transparent !important;
-}
-body[data-theme="light"] .synan-chip.syn {
-  background: rgba(30,122,47,.12) !important;
-  border-color: rgba(30,122,47,.4) !important;
-  color: #1e7a2f !important;
-}
-body[data-theme="light"] .synan-chip.ant {
-  background: rgba(200,40,40,.12) !important;
-  border-color: rgba(200,40,40,.4) !important;
-  color: #c02828 !important;
-}
-body[data-theme="light"] .alert,
-body[data-theme="light"] .alert-success {
-  background: rgba(30,122,47,.10) !important;
-  border-color: rgba(30,122,47,.40) !important;
-  color: #1e7a2f !important;
-}
-body[data-theme="light"] code,
-body[data-theme="light"] pre {
-  background: #f4f2eb !important;
-  border-color: #d0d5cc !important;
-  color: #1a1a1a !important;
-}
-/* Flashcard specific overrides */
-body[data-theme="light"] .flashcard-container .flashcard-inner {
-  background: linear-gradient(160deg, #ffffff, #f8f8f8) !important;
-  border: 1px solid #d0d5cc !important;
-  color: #1a1a1a !important;
-  text-align: center !important;
-}
-body[data-theme="light"] .flashcard-container .flashcard-word-main {
-  color: #1e7a2f !important;
-}
-body[data-theme="light"] .flashcard-container .flashcard-pro {
-  color: #3a3a3a !important;
-}
-body[data-theme="light"] .flashcard-container .flashcard-pos {
-  background: rgba(30,122,47,.1) !important;
-  border-color: rgba(30,122,47,.3) !important;
-  color: #0a3d1f !important;
-}
-body[data-theme="light"] .flashcard-container .flashcard-def-en {
-  color: #1a1a1a !important;
-}
-body[data-theme="light"] .flashcard-container .flashcard-def-zh {
-  color: #3a3a3a !important;
-}
-body[data-theme="light"] .flashcard-container .flashcard-hear {
-  background: rgba(30,122,47,.15) !important;
-  border-color: rgba(30,122,47,.6) !important;
-  color: #1e7a2f !important;
-}
-body[data-theme="light"] .flashcard-pos-display {
-  color: #0a3d1f !important;
-  background: rgba(30,122,47,.12) !important;
-  border-color: rgba(30,122,47,.4) !important;
-}
-/* Center align flashcard content in dark mode */
-.flashcard-container .flashcard-inner {
-  text-align: center !important;
-}
 </style>
 </head>
 <body>
-<div id="ctToast"></div>
-<button class="theme-toggle-btn" id="themeToggle" title="Toggle theme">🌙</button>
-
 
 <div id="toast"></div>
 
@@ -1272,23 +1032,7 @@ body[data-theme="light"] .flashcard-pos-display {
     <h1>NCEA Level 3 Chinese Vocabulary Builder</h1>
     <div class="tagline">Master NCEA Level 3 Chinese — express, justify, and challenge ideas with confidence</div>
     <div class="book-credit">146 words &middot; 146 sentences &middot; Daniel Wang's NCEA Level 3 Vocabulary Builder</div>
-    <div class="header-star-row" style="justify-content: space-between; flex-wrap: wrap; gap: 12px;">
-    <div style="display: flex; align-items: center; gap: 12px;">
-      <div style="font-size: 0.75rem; color: var(--muted2); text-transform: uppercase; letter-spacing: 0.05em;">Progress</div>
-      <div style="font-size: 0.9rem; color: var(--good); font-weight: 700;" id="progressBadge">0/{{TOTAL_WORDS}} mastered</div>
-    </div>
-    <div style="display: flex; gap: 8px; align-items: center;">
-      <button class="header-badge" id="helpBtn" onclick="openHelpModal()" title="Help & Keyboard Shortcuts">❓ Help</button>
-    </div>
-  </div>
-
-  <div id="progressBar" style="height: 4px; background: rgba(122,208,224,.12); border-radius: 999px; margin: 8px 0; overflow: hidden;">
-    <div style="height: 100%; background: linear-gradient(90deg, var(--good), #4edfc9); width: 0%; transition: width 0.3s ease;" id="progressFill"></div>
-  </div>
-
-  <div class="header-star-row" style="justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-    <div style="display: flex; align-items: center; gap: 12px;">
-      
+    <div class="header-star-row">
       <button class="header-badge" id="starredToggleBtn">⭐ Starred Words (<span id="starredCountHeader">0</span>)</button>
       <button class="header-badge print-btn" id="printBtn" onclick="openPrintModal()">🖨️ Print</button>
     </div>
@@ -1317,7 +1061,7 @@ body[data-theme="light"] .flashcard-pos-display {
   <div class="word-card" id="wordCard">
     <div class="word-card-top">
       <div class="word-left">
-        <div class="word-display" id="wordDisplay">—</div><div id="collocationDisplay" style="display:none; font-size:0.85rem; color:var(--muted); font-style:italic; margin-top:4px;"></div>
+        <div class="word-display" id="wordDisplay">—</div>
         <div class="pron-row">
           <span class="pron-text" id="pronDisplay">—</span>
           <button class="speak-btn" id="speakBtn2">🔊 Hear it</button>
@@ -1342,17 +1086,18 @@ body[data-theme="light"] .flashcard-pos-display {
     </div>
 
     <div class="sentence-tab-row">
-      <button class="sent-tab active" id="tabNovel" title="Meaning">📖 Meaning</button>
-      <button class="sent-tab" id="tabAI" title="Use">💡 Use</button>
+      <button class="sent-tab active" id="tabNovel">📖 Source Sentence</button>
+      <button class="sent-tab" id="tabAI">💡 Example</button>
       <button class="sent-tab" id="tabFlashcard">📇 Flashcard</button>
     </div>
 
     <div class="sentence-content" id="sentenceContent">
       <div style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px;">
         <div class="sent-en" id="sentEn" style="flex: 1;">—</div>
-        <button id="sentenceHearBtn" style="flex-shrink: 0; padding: 8px 14px; background: rgba(122,208,224,.12); border: 1.5px solid rgba(122,208,224,.4); border-radius: 8px; color: #7AD0E0; cursor: pointer; font-weight: 600; white-space: nowrap; font-size: 0.85rem;" onclick="const e=document.getElementById(\'sentEn\');if(e){let t=e.textContent;if(t&&t!==\'—\'){t=t.replace(/<[^>]*>/g,\'\');if(t.trim())speak(t);}}">🔊 Hear</button>
+        <button id="sentenceHearBtn" style="flex-shrink: 0; padding: 8px 14px; background: rgba(122,208,224,.12); border: 1.5px solid rgba(122,208,224,.4); border-radius: 8px; color: #7AD0E0; cursor: pointer; font-weight: 600; white-space: nowrap; font-size: 0.85rem;" onclick="try{const e=document.getElementById('sentEn');if(e&&e.textContent&&e.textContent.trim()!=='—'){let t=e.textContent.replace(/<[^>]*>/g,'');if(t.trim())speak(t);}}catch(err){console.log('Click error:',err);}">🔊 Hear</button>
       </div>
       <div class="sent-zh" id="sentZh">—</div>
+      <div class="sent-source" id="sentSource">—</div>
     </div>
 
     <div class="flashcard-container" id="flashcardContainer">
@@ -1410,7 +1155,7 @@ body[data-theme="light"] .flashcard-pos-display {
         <div class="quiz-q-num" id="quizQNum">Question 1 / 10</div>
 
         <div id="quizPhase1">
-          <div class="quiz-phase-label">📖 Choose the word</div>
+          <div class="quiz-phase-label">📖 Choose the word — Orwell's sentence</div>
           <div class="quiz-sentence" id="quizSentence">—</div>
           <div class="quiz-choices" id="quizChoices"></div>
           <div class="quiz-feedback" id="quizFeedback"></div>
@@ -1485,51 +1230,6 @@ body[data-theme="light"] .flashcard-pos-display {
     <div class="footer-author">Created by Daniel Wang (dwang055@gmail.com) for NCEA Level 3 Chinese · Based on official vocabulary list · For educational use · © 2026</div>
     <div class="footer-quote">“学而不思则罔，思而不学则殆。 Xué ér bù sī zé wǎng, sī ér bù xué zé dài.”<br>Confucius</div>
   </footer>
-</div>
-
-<!-- HELP MODAL -->
-<div id="helpModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,.75); z-index: 9999; overflow-y: auto; padding: 20px;">
-  <div style="max-width: 600px; margin: 40px auto; background: var(--panel); border: 1px solid var(--s35); border-radius: 16px; padding: 28px;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-      <h2 style="color: var(--good); font-size: 1.3rem;">📚 Help & Guides</h2>
-      <button onclick="closeHelpModal()" style="background: none; border: none; color: var(--muted); font-size: 1.5rem; cursor: pointer;">✕</button>
-    </div>
-
-    <div style="color: var(--text); font-size: 0.9rem; line-height: 1.8;">
-      <h3 style="color: var(--good); margin-top: 16px; margin-bottom: 8px;">📖 Three Learning Modes</h3>
-      <ul style="margin-left: 16px; list-style: none;">
-        <li><strong>Flashcard:</strong> Flip cards to reveal definitions. Click tabs to see both sentences.</li>
-        <li><strong>Quiz (Group):</strong> Two-part test: choose the word, then spell it. Auto-stars words you miss.</li>
-        <li><strong>Mastered Words:</strong> Quiz only your starred words (after ⭐ 5+ words).</li>
-      </ul>
-
-      <h3 style="color: var(--good); margin-top: 16px; margin-bottom: 8px;">⌨️ Keyboard Shortcuts</h3>
-      <ul style="margin-left: 16px; list-style: none; font-family: monospace; font-size: 0.85rem;">
-        <li><kbd style="background: var(--s35); padding: 2px 6px; border-radius: 3px;">←/→</kbd> Previous/Next word</li>
-        <li><kbd style="background: var(--s35); padding: 2px 6px; border-radius: 3px;">↑/↓</kbd> Previous/Next group</li>
-        <li><kbd style="background: var(--s35); padding: 2px 6px; border-radius: 3px;">S</kbd> Toggle star</li>
-        <li><kbd style="background: var(--s35); padding: 2px 6px; border-radius: 3px;">P</kbd> Pronounce word</li>
-        <li><kbd style="background: var(--s35); padding: 2px 6px; border-radius: 3px;">1/2</kbd> Switch sentence tab</li>
-      </ul>
-
-      <h3 style="color: var(--good); margin-top: 16px; margin-bottom: 8px;">💡 Study Tips</h3>
-      <ul style="margin-left: 16px; list-style: disc;">
-        <li>Use <strong>Flashcard mode</strong> to get familiar with words</li>
-        <li><strong>Star words</strong> you find tricky for targeted review</li>
-        <li>Read both <strong>sentences</strong> to see the word in different contexts</li>
-        <li>Use <strong>Pronunciation</strong> to practice speaking</li>
-        <li>Take the <strong>Group Quiz</strong> to test your knowledge</li>
-      </ul>
-
-      <h3 style="color: var(--good); margin-top: 16px; margin-bottom: 8px;">📊 Progress Tracking</h3>
-      <p>The "Mastered" counter tracks words you've successfully answered in quizzes. Your progress saves automatically.</p>
-    </div>
-
-    <button onclick="closeHelpModal()" style="width: 100%; margin-top: 20px; padding: 10px; background: var(--good); color: #061317; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">
-    </div>
-
-    <button onclick="closeHelpModal()" style="width: 100%; margin-top: 20px; padding: 10px; background: var(--good); color: #061317; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">Got it!</button>
-  </div>
 </div>
 
 <script>
@@ -3153,7 +2853,16 @@ const VOCAB = [
   }
 ];
 
+// ============================================================
+// SYNONYMS/ANTONYMS DATA
+// ============================================================
 const SYNAN = JSON.parse(decodeURIComponent(escape(atob("eyLniLHmg4UiOnsic3luIjpbIuaEn+aDhSBnx45uccOtbmciLCLmgYvniLEgbGnDoG4nw6BpIiwi5oOF5oSPIHHDrW5necOsIl0sImFudCI6WyLku4fmgaggY2jDs3Vow6huIiwi5Ya35rygIGzEm25nbcOyIiwi5Y6M5oG2IHnDoG53w7kiXX0sIuaKpeWRiiI6eyJzeW4iOlsi5rGH5oqlIGh1w6xiw6BvIiwi6ZmI6L+wIGNow6luc2jDuSIsIuivtOaYjiBzaHXFjW3DrW5nIl0sImFudCI6WyLpmpDnnpIgeceQbm3DoW4iLCLmjqnppbAgeceObnNow6wiLCLmsonpu5ggY2jDqW5tw7IiXX0sIuS/neaKpCI6eyJzeW4iOlsi57u05oqkIHfDqWlow7kiLCLniLHmiqQgw6BpaMO5Iiwi5L+d6ZqcIGLHjm96aMOgbmciXSwiYW50IjpbIuegtOWdjyBww7JodcOgaSIsIuS8pOWusyBzaMSBbmdow6BpIiwi5Y2x5a6zIHfEk2low6BpIl19LCLmiqXlkI0iOnsic3luIjpbIueZu+iusCBkxJNuZ2rDrCIsIuazqOWGjCB6aMO5Y8OoIiwi55Sz6K+3IHNoxJNucceQbmciXSwiYW50IjpbIumAgOWHuiB0dcOsY2jFqyIsIuWPlua2iCBxx5R4acSBbyIsIuaUvuW8gyBmw6BuZ3HDrCJdfSwi5b+F6aG7Ijp7InN5biI6WyLliqHlv4Ugd8O5YsOsIiwi5LiA5a6aIHnEq2TDrG5nIiwi5bqU5b2TIHnEq25nZMSBbmciXSwiYW50IjpbIuS4jeW/hSBiw7liw6wiLCLml6Dpobsgd8O6eMWrIiwi5Y+v5LulIGvEm3nHkCJdfSwi5Y+Y5YyWIjp7InN5biI6WyLmlLnlj5ggZ8eOaWJpw6BuIiwi6L2s5Y+YIHpodceObmJpw6BuIiwi5Y+Y5YqoIGJpw6BuZMOybmciXSwiYW50IjpbIuWbuuWumiBnw7lkw6xuZyIsIueos+WumiB3xJtuZMOsbmciLCLkuI3lj5ggYsO5YmnDoG4iXX0sIuS4jeWmgiI6eyJzeW4iOlsi5q+U5LiN5LiKIGLHkGLDuXNow6BuZyIsIuS4jeWPiiBiw7lqw60iLCLpgIroibIgeMO5bnPDqCJdLCJhbnQiOlsi6IOc6L+HIHNow6huZ2d1w7IiLCLotoXotoogY2jEgW95dcOoIiwi5LyY5LqOIHnFjXV5w7oiXX0sIuS4jeWkqiI6eyJzeW4iOlsi5LiN5b6IIGLDuWjEm24iLCLkuI3mgI7kuYggYsO5esSbbm1lIiwi55Wl5b6uIGzDvMOod8STaSJdLCJhbnQiOlsi5Y2B5YiGIHNow61mxJNuIiwi6Z2e5bi4IGbEk2ljaMOhbmciLCLmnoHlhbYgasOtccOtIl19LCLmn6UiOnsic3luIjpbIuajgOafpSBqaceObmNow6EiLCLmn6Xmib4gY2jDoXpox45vIiwi5p+l6K+iIGNow6F4w7puIl0sImFudCI6WyLlv73op4YgaMWrc2jDrCIsIuW/veeVpSBoxatsw7zDqCIsIumBl+a8jyB5w61sw7J1Il19LCLotoXov4ciOnsic3luIjpbIui2hei2iiBjaMSBb3l1w6giLCLotoXlh7ogY2jEgW9jaMWrIiwi6IOc6L+HIHNow6huZ2d1w7IiXSwiYW50IjpbIuiQveWQjiBsdcOyaMOydSIsIuS4jeWPiiBiw7lqw60iLCLkvY7kuo4gZMSrecO6Il19LCLpmaTkuoYiOnsic3luIjpbIumZpOWkliBjaMO6d8OgaSIsIuS7peWkliB5x5B3w6BpIiwi5o6S6ZmkIHDDoWljaMO6Il0sImFudCI6WyLljIXmi6wgYsSBb2t1w7IiLCLljIXlkKsgYsSBb2jDoW4iLCLmtrXnm5YgaMOhbmfDoGkiXX0sIuS7o+ihqCI6eyJzeW4iOlsi6LGh5b6BIHhpw6BuZ3poxJNuZyIsIuS9k+eOsCB0x5B4acOgbiIsIuihqOekuiBiaceOb3Now6wiXSwiYW50IjpbXX0sIuWcsOWbviI6eyJzeW4iOlsi5Zyw5b2i5Zu+IGTDrHjDrW5ndMO6Iiwi5a+86IiqIGTHjm9ow6FuZyIsIui3r+e6v+WbviBsw7l4acOgbnTDuiJdLCJhbnQiOltdfSwi5aSa5LmIIjp7InN5biI6WyLkvZXnrYkgaMOpZMSbbmciLCLlpoLmraQgcsO6Y8eQIiwi6L+Z5LmIIHpow6htZSJdLCJhbnQiOltdfSwi5Y+N5a+5Ijp7InN5biI6WyLmipforq4ga8Ogbmd5w6wiLCLlkKblhrMgZseSdWp1w6kiLCLmirXliLYgZMeQemjDrCJdLCJhbnQiOlsi5pSv5oyBIHpoxKtjaMOtIiwi6LWe5oiQIHrDoG5jaMOpbmciLCLlkIzmhI8gdMOzbmd5w6wiXX0sIuaWueazlSI6eyJzeW4iOlsi5Yqe5rOVIGLDoG5mx44iLCLmlrnlvI8gZsSBbmdzaMOsIiwi5omL5q61IHNox5J1ZHXDoG4iXSwiYW50IjpbXX0sIuaUvuW/gyI6eyJzeW4iOlsi5a6J5b+DIMSBbnjEq24iLCLlrr3lv4Mga3XEgW54xKtuIiwi6LiP5a6eIHTEgXNoaSJdLCJhbnQiOlsi5ouF5b+DIGTEgW54xKtuIiwi5b+n6JmRIHnFjXVsx5wiLCLnhKbmgKUgamnEgW9qw60iXX0sIueItuS6siI6eyJzeW4iOlsi54i454i4IGLDoGJhIiwi54i5IGRpxJMiLCLlrrbniLYgamnEgWbDuSJdLCJhbnQiOlsi5q+N5LqyIG3HlHHEq24iLCLlpojlpoggbcSBbWEiXX0sIumZhOi/kSI6eyJzeW4iOlsi6YK76L+RIGzDrW5qw6xuIiwi5peB6L65IHDDoW5nYmnEgW4iLCLlkajlm7QgemjFjXV3w6lpIl0sImFudCI6WyLov5zlpIQgeXXHjm5jaMO5Iiwi6L+c5pa5IHl1x45uZsSBbmciXX0sIuaEn+iniSI6eyJzeW4iOlsi5oSf5Y+XIGfHjm5zaMOydSIsIuinieW+lyBqdcOpZGUiLCLmhJ/liLAgZ8eObmTDoG8iXSwiYW50IjpbXX0sIuaEn+iwoiI6eyJzeW4iOlsi5oSf5r+AIGfHjm5qxKsiLCLmhJ/mgakgZ8eObifEk24iLCLpgZPosKIgZMOgb3hpw6giXSwiYW50IjpbIuWfi+aAqCBtw6FueXXDoG4iLCLotKPmgKogesOpZ3XDoGkiLCLmirHmgKggYsOgb3l1w6BuIl19LCLmoLnmnKwiOnsic3luIjpbIuWfuuacrCBqxKtixJtuIiwi5b275bqVIGNow6hkx5AiLCLlrozlhaggd8OhbnF1w6FuIl0sImFudCI6WyLooajpnaIgYmnHjm9tacOgbiIsIuearuavmyBww61tw6FvIl19LCLlhazmsJEiOnsic3luIjpbIuWbveawkSBndcOzbcOtbiIsIuW4guawkSBzaMOsbcOtbiIsIueZvuWnkyBix45peMOsbmciXSwiYW50IjpbXX0sIuWFs+azqCI6eyJzeW4iOlsi5YWz5b+DIGd1xIFueMSrbiIsIumHjeinhiB6aMOybmdzaMOsIiwi5rOo5oSPIHpow7l5w6wiXSwiYW50IjpbIuW/veinhiBoxatzaMOsIiwi5b+955WlIGjFq2zDvMOoIiwi6L276KeGIHHEq25nc2jDrCJdfSwi5a6z5oCVIjp7InN5biI6WyLmgZDmg6cga8eSbmdqw7kiLCLnlY/mg6cgd8OoaWrDuSIsIuaDiuaBkCBqxKtuZ2vHkm5nIl0sImFudCI6WyLli4fmlaIgeceSbmdnx45uIiwi5peg55WPIHfDunfDqGkiLCLlpKfog4YgZMOgZMeObiJdfSwi5ZKM5bmzIjp7InN5biI6WyLlronlroEgxIFubsOtbmciLCLlronlrpogxIFuZMOsbmciLCLlkozosJAgaMOpeGnDqSJdLCJhbnQiOlsi5oiY5LqJIHpow6BuemjEk25nIiwi5Yay56qBIGNoxY1uZ3TFqyIsIuWKqOiNoSBkw7JuZ2TDoG5nIl19LCLlkIjpgIIiOnsic3luIjpbIumAguWQiCBzaMOsaMOpIiwi5oGw5b2TIHFpw6Bkw6BuZyIsIumAguWunCBzaMOsecOtIl0sImFudCI6WyLkuI3lkIjpgIIgYsO5aMOpc2jDrCIsIuS4jeW9kyBiw7lkw6BuZyIsIuS4jeWmpSBiw7l0dceSIl19LCLlkI7mnaUiOnsic3luIjpbIuS5i+WQjiB6aMSraMOydSIsIuWFtuWQjiBxw61ow7J1Iiwi6ZqP5ZCOIHN1w61ow7J1Il0sImFudCI6WyLku6XliY0geceQcWnDoW4iLCLkuYvliY0gemjEq3Fpw6FuIiwi5b2T5YidIGTEgW5nY2jFqyJdfSwi5Y2O5Lq6Ijp7InN5biI6WyLljY7kvqggaHXDoXFpw6FvIiwi5Y2O6KOUIGh1w6F5w6wiLCLkuK3lm73kurogWmjFjW5nZ3XDs3LDqW4iXSwiYW50IjpbXX0sIueOr+WigyI6eyJzeW4iOlsi5ZGo5Zu0IHpoxY11d8OpaSIsIueUn+aAgSBzaMSTbmd0w6BpIiwi6Ieq54S2IHrDrHLDoW4iXSwiYW50IjpbXX0sIuWbnuaUtiI6eyJzeW4iOlsi5YaN5Yip55SoIHrDoGlsw6x5w7JuZyIsIuW+queOryB4w7puaHXDoW4iLCLlm57nlKggaHXDrXnDsm5nIl0sImFudCI6WyLmtarotLkgbMOgbmdmw6hpIiwi5Lii5byDIGRpxatxw6wiLCLmipvlvIMgcMSBb3HDrCJdfSwi6K6h5YiSIjp7InN5biI6WyLop4TliJIgZ3XEq2h1w6AiLCLmiZPnrpcgZMeOc3XDoG4iLCLmlrnmoYggZsSBbmcnw6BuIl0sImFudCI6WyLlj5jljJYgYmnDoG5odcOgIiwi6ZqP5oSPIHN1w615w6wiXX0sIuacuuS8miI6eyJzeW4iOlsi5py66YGHIGrEq3nDuSIsIuaXtuacuiBzaMOtasSrIiwi57yY5YiGIHl1w6FuZsOobiJdLCJhbnQiOltdfSwi566A5Y2VIjp7InN5biI6WyLlrrnmmJMgcsOzbmd5w6wiLCLnroDmmJMgamnHjm55w6wiLCLljZXnuq8gZMSBbmNow7puIl0sImFudCI6WyLlpI3mnYIgZsO5esOhIiwi5Zuw6Zq+IGvDuW5uw6FuIiwi57mB55CQIGbDoW5zdceSIl19LCLlsIbmnaUiOnsic3luIjpbIuacquadpSB3w6hpbMOhaSIsIuS7peWQjiB5x5Bow7J1Iiwi5pel5ZCOIHLDrGjDsnUiXSwiYW50IjpbIui/h+WOuyBndcOyccO5Iiwi5Lul5YmNIHnHkHFpw6FuIiwi546w5ZyoIHhpw6BuesOgaSJdfSwi5Lqk5rWBIjp7InN5biI6WyLmsp/pgJogZ8WNdXTFjW5nIiwi5Lqk5b6AIGppxIFvd8eObmciLCLkupLliqggaMO5ZMOybmciXSwiYW50IjpbIumalOe7nSBnw6lqdcOpIiwi5a2k56uLIGfFq2zDrCIsIuWwgemXrSBmxJNuZ2LDrCJdfSwi57uT5p6cIjp7InN5biI6WyLlkI7mnpwgaMOydWd1x5IiLCLmiJDmnpwgY2jDqW5nZ3XHkiIsIue7k+WxgCBqacOpasO6Il0sImFudCI6WyLljp/lm6AgeXXDoW55xKtuIiwi6LW35ZugIHHHkHnEq24iLCLmoLnmupAgZ8STbnl1w6FuIl19LCLnu5PmnZ8iOnsic3luIjpbIuWujOe7kyB3w6FuamnDqSIsIue7iOatoiB6aMWNbmd6aMeQIiwi5YGc5q2iIHTDrW5nemjHkCJdLCJhbnQiOlsi5byA5aeLIGvEgWlzaMeQIiwi5ZCv5YqoIHHHkGTDsm5nIiwi57un57utIGrDrHjDuSJdfSwi6Kej5YazIjp7InN5biI6WyLlpITnkIYgY2jHlGzHkCIsIuWMluinoyBodcOgamnEmyIsIuaQnuWumiBnx45vZMOsbmciXSwiYW50IjpbIuWItumAoCB6aMOsesOgbyIsIuW8lei1tyB5x5BucceQIiwi6YGX55WZIHnDrWxpw7oiXX0sIue7j+i/hyI6eyJzeW4iOlsi6YCa6L+HIHTFjW5nZ3XDsiIsIue7j+WOhiBqxKtuZ2zDrCIsIuWOhueoiyBsw6xjaMOpbmciXSwiYW50IjpbXX0sIue7j+mqjCI6eyJzeW4iOlsi57uP5Y6GIGrEq25nbMOsIiwi6ZiF5Y6GIHl1w6hsw6wiLCLkvZPkvJogdMeQaHXDrCJdLCJhbnQiOltdfSwi5penIjp7InN5biI6WyLlj6TogIEgZ8eUbMeObyIsIumZiOaXpyBjaMOpbmppw7kiLCLogIHlvI8gbMeOb3Now6wiXSwiYW50IjpbIuaWsCB4xKtuIiwi5bSt5pawIHpox45ueMSrbiIsIuaWsOmynCB4xKtueGnEgW4iXX0sIuaNruivtCI6eyJzeW4iOlsi5ZCs6K+0IHTEq25nc2h1xY0iLCLnm7jkvKAgeGnEgW5nY2h1w6FuIiwi5o2u5LygIGrDuWNodcOhbiJdLCJhbnQiOltdfSwi55yL5rOVIjp7InN5biI6WyLop4LngrkgZ3XEgW5kaceObiIsIuaEj+ingSB5w6xqacOgbiIsIuingeinoyBqacOgbmppxJsiXSwiYW50IjpbXX0sIuWPr+aAlSI6eyJzeW4iOlsi5oGQ5oCWIGvHkm5nYsO5Iiwi5ZCT5Lq6IHhpw6Byw6luIiwi6aqH5Lq6IGjDoGlyw6luIl0sImFudCI6WyLlj6/niLEga8SbJ8OgaSIsIue+juWlvSBtxJtpaMeObyIsIuWuieWFqCDEgW5xdcOhbiJdfSwi56m66Ze0Ijp7InN5biI6WyLnqbrlnLAga8Oybmdkw6wiLCLlnLrmiYAgY2jHjm5nc3XHkiIsIuiMg+WbtCBmw6Bud8OpaSJdLCJhbnQiOltdfSwi5Z6D5Zy+Ijp7InN5biI6WyLlup/niakgZsOoaXfDuSIsIuW6n+WTgSBmw6hpcMeQbiIsIuWeg+WcviBsxIFqxKsiXSwiYW50IjpbIui1hOa6kCB6xKt5dcOhbiIsIuWuneeJqSBix45vd8O5Il19LCLkuZDop4IiOnsic3luIjpbIuenr+aegSBqxKtqw60iLCLlvIDmnJcga8SBaWzHjm5nIiwi6LGB6L6+IGh1w7Jkw6EiXSwiYW50IjpbIuaCsuingiBixJNpZ3XEgW4iLCLmtojmnoEgeGnEgW9qw60iLCLlv6fpg4EgecWNdXnDuSJdfSwi57G75Ly8Ijp7InN5biI6WyLnm7jkvLwgeGnEgW5nc8OsIiwi55u45YOPIHhpxIFuZ3hpw6BuZyIsIui/keS8vCBqw6xuc8OsIl0sImFudCI6WyLkuI3lkIwgYsO5dMOzbmciLCLnm7jlj40geGnEgW5nZseObiIsIuWvueeriyBkdcOsbMOsIl19LCLliKnnlKgiOnsic3luIjpbIuS9v+eUqCBzaMeQecOybmciLCLov5DnlKggecO5bnnDsm5nIiwi5YCf5YqpIGppw6h6aMO5Il0sImFudCI6WyLmtarotLkgbMOgbmdmw6hpIiwi6Zey572uIHhpw6FuemjDrCJdfSwi55CG55SxIjp7InN5biI6WyLljp/lm6AgeXXDoW55xKtuIiwi6YGT55CGIGTDoG9sx5AiLCLlgJ/lj6MgamnDqGvHknUiXSwiYW50IjpbXX0sIuiBiuWkqSI6eyJzeW4iOlsi6Zey6LCIIHhpw6FudMOhbiIsIuS6pOiwiCBqacSBb3TDoW4iLCLosIjor50gdMOhbmh1w6AiXSwiYW50IjpbIuayiem7mCBjaMOpbm3DsiIsIuS4jeivrSBiw7l5x5QiXX0sIua1geWIqSI6eyJzeW4iOlsi5rWB55WFIGxpw7pjaMOgbmciLCLpgJrpobogdMWNbmdzaMO5biIsIue6r+eGnyBjaMO6bnNow7oiXSwiYW50IjpbIue7k+W3tCBqacSTYmEiLCLnlJ/mtqkgc2jEk25nc8OoIiwi56OV5be0IGvEk2JhIl19LCLmu6HmhI8iOnsic3luIjpbIua7oei2syBtx45uesO6Iiwi56ew5b+DIGNow6hueMSrbiIsIuWmguaEjyByw7p5w6wiXSwiYW50IjpbIuS4jea7oSBiw7ltx45uIiwi5aSx5pybIHNoxKt3w6BuZyIsIumBl+aGviB5w61ow6BuIl19LCLlqpLkvZMiOnsic3luIjpbIuWqkuS7iyBtw6lpamnDqCIsIuS8oOWqkiBjaHXDoW5tw6lpIiwi5paw6Ze7IHjEq253w6luIl0sImFudCI6W119LCLmoqbmg7MiOnsic3luIjpbIueQhuaDsyBsx5B4aceObmciLCLmhL/mnJsgeXXDoG53w6BuZyIsIuaGp+aGrCBjaMWNbmdqx5BuZyJdLCJhbnQiOlsi546w5a6eIHhpw6Buc2jDrSIsIuWunumZhSBzaMOtasOsIl19LCLpnaLlr7kiOnsic3luIjpbIumdouS4tCBtacOgbmzDrW4iLCLmraPop4YgemjDqG5nc2jDrCIsIuW6lOWvuSB5w6xuZ2R1w6wiXSwiYW50IjpbIumAg+mBvyB0w6FvYsOsIiwi5Zue6YG/IGh1w61iw6wiLCLourLpl6ogZHXHknNox45uIl19LCLmmI7nmb0iOnsic3luIjpbIueQhuinoyBsx5BqacSbIiwi5riF5qWaIHHEq25nY2jHlCIsIuaHguW+lyBkx5JuZ2RlIl0sImFudCI6WyLns4rmtoIgaMO6dHUiLCLov7fmg5EgbcOtaHXDsiIsIuS4jeinoyBiw7lqacSbIl19LCLnm67nmoQiOnsic3luIjpbIuebruaghyBtw7liacSBbyIsIuaEj+WbviB5w6x0w7oiLCLlrpfml6ggesWNbmd6aMeQIl0sImFudCI6W119LCLog73lipsiOnsic3luIjpbIuacrOS6iyBixJtuc2jDrCIsIuaJjeW5siBjw6FpZ8OgbiIsIuacrOmihiBixJtubMeQbmciXSwiYW50IjpbIuaXoOiDvSB3w7puw6luZyIsIuesqOaLmSBiw6huemh1xY0iXX0sIuW5tOi9uyI6eyJzeW4iOlsi5bm05bCRIG5pw6Fuc2jDoG8iLCLpnZLmmKUgccSrbmdjaMWrbiIsIumdkuW5tCBxxKtuZ25pw6FuIl0sImFudCI6WyLlubTogIEgbmnDoW5sx45vIiwi5bm06L+IIG5pw6FubcOgaSIsIuiAgeW5tCBsx45vbmnDoW4iXX0sIuWKquWKmyI6eyJzeW4iOlsi5Yuk5aWLIHHDrW5mw6huIiwi55So5YqfIHnDsm5nZ8WNbmciLCLlsL3lipsgasOsbmzDrCJdLCJhbnQiOlsi5oeS5oOwIGzHjm5kdcOyIiwi5oeI5oCgIHhpw6hkw6BpIiwi5p2+5oeIIHPFjW5neGnDqCJdfSwi54isIjp7InN5biI6WyLmlIDnmbsgcMSBbmTEk25nIiwi5pSA54isIHDEgW5ww6EiLCLlkJHkuIogeGnDoG5nc2jDoG5nIl0sImFudCI6WyLkuIvpmY0geGnDoGppw6BuZyIsIui3jOiQvSBkacSTbHXDsiJdfSwi5o6S6ZifIjp7InN5biI6WyLliJfpmJ8gbGnDqGR1w6wiLCLnq5npmJ8gemjDoG5kdcOsIiwi6aG65bqPIHNow7lueMO5Il0sImFudCI6WyLmj5LpmJ8gY2jEgWR1w6wiLCLkubHluo8gbHXDoG54w7kiXX0sIuW5s+W4uCI6eyJzeW4iOlsi5pmu6YCaIHDHlHTFjW5nIiwi5LiA6IisIHnEq2LEgW4iLCLlr7vluLggeMO6bmNow6FuZyJdLCJhbnQiOlsi54m55q6KIHTDqHNoxasiLCLnibnliKsgdMOoYmnDqSIsIumdnuWHoSBmxJNpZsOhbiJdfSwi5bmz562JIjp7InN5biI6WyLlhazlubMgZ8WNbmdww61uZyIsIuWdh+etiSBqxatuZMSbbmciLCLlkIznrYkgdMOzbmdkxJtuZyJdLCJhbnQiOlsi5LiN5bmz562JIGLDuXDDrW5nZMSbbmciLCLmrafop4YgccOtc2jDrCIsIuWBj+mihyBwacSBbnDFjSJdfSwi5YW25a6eIjp7InN5biI6WyLlrp7pmYXkuIogc2jDrWrDrHNow6BuZyIsIuS6i+WunuS4iiBzaMOsc2jDrXNow6BuZyIsIuehruWIhyBxacOocXXDqCJdLCJhbnQiOltdfSwi5bqG56WdIjp7InN5biI6WyLnuqrlv7UgasOsbmnDoG4iLCLluobotLogccOsbmdow6giLCLnpZ3otLogemjDuWjDqCJdLCJhbnQiOltdfSwi54Ot6Ze5Ijp7InN5biI6WyLllqfpl7kgeHXEgW5uw6BvIiwi57mB5Y2OIGbDoW5odcOhIiwi5qyi6IW+IGh1xIFudMOpbmciXSwiYW50IjpbIuWuiemdmSDEgW5qw6xuZyIsIuWGt+a4hSBsxJtuZ3HEq25nIiwi5a+C6Z2ZIGrDrGrDrG5nIl19LCLorqTnnJ8iOnsic3luIjpbIuS7lOe7hiB6x5B4w6wiLCLkuKXosKggecOhbmrHkG4iLCLkuJPlv4Mgemh1xIFueMSrbiJdLCJhbnQiOlsi6ams6JmOIG3Hjmh1Iiwi5pW36KGNIGbFq3nHjm4iLCLojYnnjocgY8eOb3NodcOgaSJdfSwi5ZWG5ZOBIjp7InN5biI6WyLotKfniakgaHXDsnfDuSIsIuS6p+WTgSBjaMeObnDHkG4iLCLnianlk4Egd8O5cMeQbiJdLCJhbnQiOltdfSwi56S+5LyaIjp7InN5biI6WyLnpL7nvqQgc2jDqHHDum4iLCLlhazkvJcgZ8WNbmd6aMOybmciLCLmsJHpl7QgbcOtbmppxIFuIl0sImFudCI6W119LCLorr7orqEiOnsic3luIjpbIuaehOaAnSBnw7J1c8SrIiwi562W5YiSIGPDqGh1w6AiLCLop4TliJIgZ3XEq2h1w6AiXSwiYW50IjpbXX0sIueUn+WRvSI6eyJzeW4iOlsi5oCn5ZG9IHjDrG5nbcOsbmciLCLkuIDnlJ8gecSrc2jEk25nIiwi5Lq655SfIHLDqW5zaMSTbmciXSwiYW50IjpbIuatu+S6oSBzx5B3w6FuZyIsIumAneWOuyBzaMOsccO5Il19LCLnlJ/mhI8iOnsic3luIjpbIuS5sOWNliBtx45pbWFpIiwi5ZWG5LiaIHNoxIFuZ3nDqCIsIue7j+iQpSBqxKtuZ3nDrW5nIl0sImFudCI6W119LCLlo7Dpn7MiOnsic3luIjpbIuWjsOWTjSBzaMSTbmd4aceObmciLCLll5Ppn7Mgc8eObmd5xKtuIiwi6K+t6Z+zIHnHlHnEq24iXSwiYW50IjpbXX0sIuS4lueVjCI6eyJzeW4iOlsi5YWo55CDIHF1w6FucWnDuiIsIuWkqeS4iyB0acSBbnhpw6AiLCLkuJbpl7Qgc2jDrGppxIFuIl0sImFudCI6W119LCLkuovlrp4iOnsic3luIjpbIuecn+ebuCB6aMSTbnhpw6BuZyIsIuWunuaDhSBzaMOtccOtbmciLCLlrp7pmYUgc2jDrWrDrCJdLCJhbnQiOlsi6LCO6KiAIGh1x45uZ3nDoW4iLCLomZrlgYcgeMWramnHjiIsIuWBh+ixoSBqaceOeGnDoG5nIl19LCLkvb/nlKgiOnsic3luIjpbIuW6lOeUqCB5w6xuZ3nDsm5nIiwi6L+Q55SoIHnDuW55w7JuZyIsIuWIqeeUqCBsw6x5w7JuZyJdLCJhbnQiOlsi5bqf5byDIGbDqGlxw6wiLCLpl7Lnva4geGnDoW56aMOsIl19LCLmlLblhaUiOnsic3luIjpbIuaUtuebiiBzaMWNdXnDrCIsIuaJgOW+lyBzdceSZMOpIiwi5oql6YWsIGLDoG9jaG91Il0sImFudCI6WyLmlK/lh7ogemjEq2NoxasiLCLoirHotLkgaHXEgWbDqGkiLCLmjZ/lpLEgc8eUbnNoxKsiXX0sIuawtOW5syI6eyJzeW4iOlsi56iL5bqmIGNow6luZ2TDuSIsIuawtOWHhiBzaHXHkHpox5RuIiwi5bGC5qyhIGPDqW5nY8OsIl0sImFudCI6W119LCLmgIHluqYiOnsic3luIjpbIuWnv+aAgSB6xKt0w6BpIiwi56uL5Zy6IGzDrGNox45uZyIsIuW/g+aAgSB4xKtudMOgaSJdLCJhbnQiOltdfSwi6K6o6K66Ijp7InN5biI6WyLorq7orrogecOsbMO5biIsIuaOouiuqCB0w6BudMeObyIsIuWVhuiuriBzaMSBbmd5w6wiXSwiYW50IjpbXX0sIuaPkOWHuiI6eyJzeW4iOlsi5o+Q6K6uIHTDrXnDrCIsIuW7uuiuriBqacOgbnnDrCIsIuaMh+WHuiB6aMeQY2jFqyJdLCJhbnQiOlsi5pS25ZueIHNoxY11aHXDrSIsIuaSpOWbniBjaMOoaHXDrSJdfSwi5L2T6aqMIjp7InN5biI6WyLmhJ/lj5cgZ8eObnNow7J1Iiwi57uP5Y6GIGrEq25nbMOsIiwi5L2T5LyaIHTHkGh1w6wiXSwiYW50IjpbXX0sIueUnCI6eyJzeW4iOlsi55SY55ScIGfEgW50acOhbiIsIueUnOicnCB0acOhbm3DrCIsIueUnOe+jiB0acOhbm3Em2kiXSwiYW50IjpbIuiLpiBrx5QiLCLphbggc3XEgW4iLCLovqMgbMOgIl19LCLlpKnnqboiOnsic3luIjpbIuWkqeepuSB0acSBbnFpw7NuZyIsIuS6kemchCB5w7pueGnEgW8iLCLoi43nqbkgY8SBbmdxacOzbmciXSwiYW50IjpbIuWcsOmdoiBkw6xtacOgbiIsIuWkp+WcsCBkw6Bkw6wiXX0sIuadoeS7tiI6eyJzeW4iOlsi5YmN5o+QIHFpw6FudMOtIiwi5Zug57SgIHnEq25zw7kiLCLnjq/looMgaHXDoW5qw6xuZyJdLCJhbnQiOltdfSwi6LCD5pW0Ijp7InN5biI6WyLosIPoioIgdGnDoW9qacOpIiwi6LCD55CGIHRpw6FvbMeQIiwi5pS55q2jIGfHjml6aMOobmciXSwiYW50IjpbIuWbuuWumiBnw7lkw6xuZyIsIuS/neaMgSBix45vY2jDrSJdfSwi56qB54S2Ijp7InN5biI6WyLlv73nhLYgaMWrcsOhbiIsIueMm+eEtiBtxJtuZ3LDoW4iLCLpqqTnhLYgemjDsnVyw6FuIl0sImFudCI6WyLmhaLmhaIgbcOgbm3DoG4iLCLpgJDmuJAgemjDumppw6BuIiwi5riQ5riQIGppw6BuamnDoG4iXX0sIuWujOaIkCI6eyJzeW4iOlsi5a6e546wIHNow614acOgbiIsIui+vuaIkCBkw6FjaMOpbmciLCLlgZrlrowgenXDsnfDoW4iXSwiYW50IjpbIuW8gOWniyBrxIFpc2jHkCIsIuWQr+WKqCBxx5Bkw7JuZyIsIuacquWujOaIkCB3w6hpd8OhbmNow6luZyJdfSwi5a6M576OIjp7InN5biI6WyLlrozlloQgd8OhbnNow6BuIiwi5ZyG5ruhIHl1w6FubceObiIsIuaXoOe8uiB3w7pxdcSTIl0sImFudCI6WyLnvLrpmbcgcXXEk3hpw6BuIiwi5LiN6LazIGLDuXrDuiIsIue8uuaGviBxdcSTaMOgbiJdfSwi5b+Y6K6wIjp7InN5biI6WyLpgZflv5ggecOtd8OgbmciLCLlv5jljbQgd8OgbmdxdcOoIiwi5b+955WlIGjFq2zDvMOoIl0sImFudCI6WyLorrDkvY8gasOsemjDuSIsIueJouiusCBsw6FvasOsIiwi6ZOt6K6wIG3DrW5nasOsIl19LCLljbHpmakiOnsic3luIjpbIumjjumZqSBmxJNuZ3hpx45uIiwi5Y2x5oClIHfEk2lqw60iLCLpmanmgbYgeGnHjm4nw6giXSwiYW50IjpbIuWuieWFqCDEgW5xdcOhbiIsIuW5s+WuiSBww61uZyfEgW4iLCLkv53pmakgYseOb3hpx45uIl19LCLmuKnmmpYiOnsic3luIjpbIuaaluWSjCBudceObmh1byIsIua4qemmqCB3xJNueMSrbiIsIuaaluaEjyBudceObnnDrCJdLCJhbnQiOlsi5a+S5Ya3IGjDoW5sxJtuZyIsIuWGsOWGtyBixKtuZ2zEm25nIiwi5Ya36YW3IGzEm25na8O5Il19LCLmsaHmn5MiOnsic3luIjpbIuaxoeafkyB3xatyx45uIiwi5rGh5rWKIHfFq3podcOzIiwi56C05Z2PIHDDsmh1w6BpIl0sImFudCI6WyLmuIXmtIEgccSrbmdqacOpIiwi5YeA5YyWIGrDrG5naHXDoCIsIueOr+S/nSBodcOhbmLHjm8iXX0sIuS5oOaDryI6eyJzeW4iOlsi5Lmg5oCnIHjDrXjDrG5nIiwi5oOv5L6LIGd1w6BubMOsIiwi5Lmg5rCUIHjDrXHDrCJdLCJhbnQiOlsi5pS55Y+YIGfHjmliacOgbiIsIue6oOatoyBqacWremjDqG5nIl19LCLluIzmnJsiOnsic3luIjpbIuacn+acmyBxxKt3w6BuZyIsIuebvOacmyBww6Bud8OgbmciLCLmuLTmnJsga8Sbd8OgbmciXSwiYW50IjpbIue7neacmyBqdcOpd8OgbmciLCLlpLHmnJsgc2jEq3fDoG5nIiwi54Gw5b+DIGh1xKt4xKtuIl19LCLnjrDku6MiOnsic3luIjpbIuW9k+S7oyBkxIFuZ2TDoGkiLCLnjrDku4ogeGnDoG5qxKtuIiwi5b2T5LiLIGTEgW5neGnDoCJdLCJhbnQiOlsi5Y+k5LujIGfHlGTDoGkiLCLkvKDnu58gY2h1w6FudMeSbmciLCLml6fml7YgamnDuXNow60iXX0sIueOsOWuniI6eyJzeW4iOlsi5a6e6ZmFIHNow61qw6wiLCLnnJ/lrp4gemjEk25zaMOtIiwi5a6i6KeCIGvDqGd1xIFuIl0sImFudCI6WyLnkIbmg7MgbMeQeGnHjm5nIiwi5bm75oOzIGh1w6BueGnHjm5nIiwi6Jma5bm7IHjFq2h1w6BuIl19LCLmg7PliLAiOnsic3luIjpbIuaDs+i1tyB4aceObmdxx5AiLCLorrDotbcgasOscceQIiwi5Zue5b+GIGh1w615w6wiXSwiYW50IjpbIuW/mOiusCB3w6BuZ2rDrCIsIumBl+W/mCB5w613w6BuZyJdfSwi5oOz5rOVIjp7InN5biI6WyLlv7XlpLQgbmnDoG50b3UiLCLkuLvmhI8gemjHlHlpIiwi5p6E5oCdIGfDsnVzxKsiXSwiYW50IjpbXX0sIuW/g+aDhSI6eyJzeW4iOlsi5b+D5aKDIHjEq25qw6xuZyIsIuaDhee7qiBxw61uZ3jDuSIsIuW/g+aAgSB4xKtudMOgaSJdLCJhbnQiOltdfSwi5paw6bKcIjp7InN5biI6WyLmuIXmlrAgccSrbmd4xKtuIiwi5paw6aKWIHjEq255x5BuZyIsIuaWsOWlhyB4xKtuccOtIl0sImFudCI6WyLpmYjml6cgY2jDqW5qacO5Iiwi6IWQ54OCIGbHlGzDoG4iLCLogIHlpZcgbMeOb3TDoG8iXX0sIuW5uOemjyI6eyJzeW4iOlsi5b+r5LmQIGt1w6BpbMOoIiwi576O5ruhIG3Em2ltx45uIiwi55Sc576OIHRpw6FubcSbaSJdLCJhbnQiOlsi55eb6IumIHTDsm5na8eUIiwi5oKy5ZOAIGLEk2knxIFpIiwi5oKy5oOoIGLEk2ljx45uIl19LCLlubjov5AiOnsic3luIjpbIuWlvei/kCBox45vecO5biIsIuemj+awlCBmw7pxw6wiLCLotbDov5AgeseSdXnDuW4iXSwiYW50IjpbIuWAkumciSBkx45vbcOpaSIsIuS4jeW5uCBiw7l4w6xuZyIsIuWOhOi/kCDDqHnDuW4iXX0sIumcgOimgSI6eyJzeW4iOlsi6ZyA5rGCIHjFq3Fpw7oiLCLlv4XopoEgYsOsecOgbyIsIuimgeaxgiB5xIFvcWnDuiJdLCJhbnQiOlsi5aSa5L2ZIGR1xY15w7oiLCLml6Dpobsgd8O6eMWrIl19LCLpgInmi6kiOnsic3luIjpbIuaMkemAiSB0acSBb3h1x45uIiwi5oqJ5oupIGp1w6l6w6kiLCLpgInlj5YgeHXHjm5xx5QiXSwiYW50IjpbIuaUvuW8gyBmw6BuZ3HDrCIsIuaOkumZpCBww6FpY2jDuiJdfSwi5LiA6IisIjp7InN5biI6WyLpgJrluLggdMWNbmdjaMOhbmciLCLmma7pgJogcMeUdMWNbmciLCLlubPluLggcMOtbmdjaMOhbmciXSwiYW50IjpbIueJueauiiB0w6hzaMWrIiwi54m55YirIHTDqGJpw6kiLCLpnZ7lh6EgZsSTaWbDoW4iXX0sIuenu+awkSI6eyJzeW4iOlsi56e75bGFIHnDrWrFqyIsIui/geenuyBxacSBbnnDrSIsIui/geW+mSBxacSBbnjHkCJdLCJhbnQiOlsi5b2S5Zu9IGd1xKtndcOzIiwi6L+U5LmhIGbHjm54acSBbmciXX0sIuaEj+S5iSI6eyJzeW4iOlsi5ZCr5LmJIGjDoW55w6wiLCLku7flgLwgamnDoHpow60iLCLkvZznlKggenXDsnnDsm5nIl0sImFudCI6W119LCLljbDosaEiOnsic3luIjpbIuW9ouixoSB4w61uZ3hpw6BuZyIsIuinguaEnyBndcSBbmfHjm4iLCLmhJ/op4kgZ8eObmp1w6kiXSwiYW50IjpbXX0sIumBh+WIsCI6eyJzeW4iOlsi6YGH6KeBIHnDuWppw6BuIiwi56Kw5LiKIHDDqG5nc2jDoG5nIiwi6YGt6YGHIHrEgW95w7kiXSwiYW50IjpbIumUmei/hyBjdcOyZ3XDsiIsIumBv+W8gCBiw6xrxIFpIl19LCLnuqYiOnsic3luIjpbIue6puWumiB5dcSTZMOsbmciLCLpooTnuqYgecO5eXXEkyIsIumihOiuoiB5w7lkw6xuZyJdLCJhbnQiOlsi5Y+W5raIIHHHlHhpxIFvIiwi54i957qmIHNodceObmd5dcSTIl19LCLmraPlvI8iOnsic3luIjpbIuato+inhCB6aMOobmdndcSrIiwi5a6Y5pa5IGd1xIFuZsSBbmciLCLmraPop4QgemjDqG5nZ3XEqyJdLCJhbnQiOlsi6Z2e5q2j5byPIGbEk2l6aMOobmdzaMOsIiwi6ZqP5oSPIHN1w615w6wiLCLpnZ7lrpjmlrkgZsSTaWd1xIFuZsSBbmciXX0sIuaUr+aMgSI6eyJzeW4iOlsi5biu5YqpIGLEgW5nemjDuSIsIui1nuaIkCB6w6BuY2jDqW5nIiwi6byT5YqxIGfHlGzDrCJdLCJhbnQiOlsi5Y+N5a+5IGbHjm5kdcOsIiwi5oq15Yi2IGTHkHpow6wiLCLlkKblrpogZseSdWTDrG5nIl19LCLlv5fmhL/ogIUiOnsic3luIjpbIuS5ieW3pSB5w6xnxY1uZyIsIuW/l+aEv+S6uuWRmCB6aMOseXXDoG4gcsOpbnl1w6FuIiwi5pyN5Yqh5Lq65ZGYIGbDunfDuSByw6lueXXDoW4iXSwiYW50IjpbXX0sIuWPquWlvSI6eyJzeW4iOlsi5Y+q5b6XIHpox5Bkw6kiLCLkuI3lvpfkuI0gYsO5ZMOpYsO5Iiwi5peg5aWIIHfDum7DoGkiXSwiYW50IjpbIuWPr+S7pSBrxJt5x5AiLCLpgInmi6kgeHXHjm56w6kiXX0sIue7iOS6jiI6eyJzeW4iOlsi5oC7566XIHrHkm5nc3XDoG4iLCLmr5Xnq58gYsOsasOsbmciLCLnu4jnqbYgemjFjW5namnFqyJdLCJhbnQiOlsi6L+Y5pyqIGjDoWl3w6hpIiwi5bCa5pyqIHNow6BuZ3fDqGkiXX0sIuazqOaEjyI6eyJzeW4iOlsi5bCP5b+DIHhpx45veMSrbiIsIueVmeaEjyBsacO6ecOsIiwi5YWz5rOoIGd1xIFuemjDuSJdLCJhbnQiOlsi5b+955WlIGjFq2zDvMOoIiwi5b+96KeGIGjFq3Now6wiLCLlpKfmhI8gZMOgecOsIl19LCLoh6rnhLYiOnsic3luIjpbIuWkqeeEtiB0acSBbnLDoW4iLCLlvZPnhLYgZMSBbmdyw6FuIiwi5pys6LqrIGLEm25zaMSTbiJdLCJhbnQiOlsi5Lq65belIHLDqW5nxY1uZyIsIuS6uuS4uiByw6lud8OpaSIsIuaVheaEjyBnw7l5w6wiXX0sIuiHquS/oSI6eyJzeW4iOlsi5L+h5b+DIHjDrG54xKtuIiwi6Ieq5aSnIHrDrGTDoCIsIuiHqua7oSB6w6xtx45uIl0sImFudCI6WyLoh6rljZEgesOsYsSTaSIsIuaAr+aHpiBxacOobnXDsiIsIuiDhuaAryBkx45ucWnDqCJdfSwi6Laz5aSfIjp7InN5biI6WyLlhYXliIYgY2jFjW5nZsOobiIsIuWFhei2syBjaMWNbmd6w7oiLCLlpJ/nlKggZ8OydXnDsm5nIl0sImFudCI6WyLkuI3otrMgYsO5esO6Iiwi57y65LmPIHF1xJNmw6EiLCLkuI3lpJ8gYsO5Z8OydSJdfSwi5L2c5ZOBIjp7InN5biI6WyLokZfkvZwgemjDuXp1w7IiLCLliJvkvZwgY2h1w6BuZ3p1w7IiLCLoibrmnK/lk4EgecOsc2jDuXDHkG4iXSwiYW50IjpbXX0sIuS6suWmguS4gOWutu+8jOaDheWQjOaJi+i2syI6eyJzeW4iOlsi5Lqy5a+G5peg6Ze0IHHEq25tw6x3w7pqacOgbiIsIuaJi+i2s+aDhea3sSBzaMeSdXrDunHDrW5nc2jEk24iLCLmg4XlkIzmiYvotrMgccOtbmd0w7NuZ3Nox5J1esO6Il0sImFudCI6WyLlvaLlkIzpmYzot68geMOtbmd0w7NuZ23DsmzDuSIsIueWj+i/nCBzaMWreXXHjm4iXX0sIuWFpeS5oemaj+S/lyI6eyJzeW4iOlsi6ZqP5L+XIHN1w61zw7oiLCLpgILlupTlvZPlnLAgc2jDrHnDrG5nIGTEgW5nZMOsIiwi5Zug5Zyw5Yi25a6cIHnEq25kw6x6aMOsecOtIl0sImFudCI6WyLlm7rmiaflt7Hop4EgZ8O5emjDrWrHkGppw6BuIiwi5oiR6KGM5oiR57SgIHfHknjDrW5nd8eSc8O5Il19LCLlpKnkuIvkuIDlrrYiOnsic3luIjpbIuWkp+WQjOS4lueVjCBkw6B0w7NuZyBzaMOsamnDqCIsIuS4lueVjOS4gOWutiBzaMOsamnDqCB5xKtqacSBIiwi5Lq657G75ZG96L+Q5YWx5ZCM5L2TIHLDqW5sw6hpIG3DrG5necO5biBnw7JuZ3TDs25ndMeQIl0sImFudCI6WyLliIboo4IgZsSTbmxpw6giLCLlr7nnq4sgZHXDrGzDrCIsIumalOmYgiBnw6low6kiXX0sIuWQjOiIn+WFsea1jiI6eyJzeW4iOlsi6b2Q5b+D5Y2P5YqbIHHDrXjEq254acOpbMOsIiwi5oKj6Zq+5LiO5YWxIGh1w6BubsOgbnnHlGfDsm5nIiwi5YWx5bqm6Zq+5YWzIGfDsm5nZMO5IG7DoW5ndcSBbiJdLCJhbnQiOlsi5ZCE6Ieq5Li65pS/IGfDqHrDrHfDqWl6aMOobmciLCLkuIDnm5jmlaPmspkgecSrcMOhbnPHjm5zaMSBIl19LCLlsIrogIHniLHlubwiOnsic3luIjpbIuaVrOiAgeeIseW5vCBqw6xuZ2zHjm/DoGl5w7J1Iiwi5bCK6ICB54ix5bm8IHrFq25sx45vw6BpecOydSIsIuWtneS6suaVrOiAgSB4acOgb3HEq25qw6xuZ2zHjm8iXSwiYW50IjpbIuiZkOW+hSBuw7zDqGTDoGkiLCLkuI3lrZ0gYsO5eGnDoG8iLCLovbvop4YgccSrbmdzaMOsIl19LCLmiavnoIEiOnsic3luIjpbIuaJq+aPjyBzx45vbWnDoW8iLCLmiavkuIDmiasgc8eOb3nEq3PHjm8iLCLor7vlj5YgZMO6cceUIl0sImFudCI6W119LCLliLfljaEiOnsic3luIjpbIuWIkuWNoSBodcOha8eOIiwi6K+75Y2hIGTDumvHjiIsIuaUr+S7mCB6aMSrZsO5Il0sImFudCI6WyLnjrDph5EgeGnDoG5qxKtuIiwi5LuY546wIGbDuXhpw6BuIl19LCLkuoznu7TnoIEiOnsic3luIjpbIlFS56CBIFFSIG3HjiIsIuadoeeggSB0acOhb23HjiIsIuWbvuW9oueggSB0w7p4w61uZ23HjiJdLCJhbnQiOltdfSwi55S15a2Q5pSv5LuYIjp7InN5biI6WyLnp7vliqjmlK/ku5ggecOtZMOybmcgemjEq2bDuSIsIuWcqOe6v+aUr+S7mCB6w6BpeGnDoG4gemjEq2bDuSIsIuaVsOWtl+aUr+S7mCBzaMO5esOsIHpoxKtmw7kiXSwiYW50IjpbIueOsOmHkeaUr+S7mCB4acOgbmrEq24gemjEq2bDuSIsIuS8oOe7n+aUr+S7mCBjaHXDoW50x5JuZyB6aMSrZsO5Il19LCLkuIrkvKAiOnsic3luIjpbIuS4iui9vSBzaMOgbmd6x45pIiwi5Y+R6YCBIGbEgXPDsm5nIiwi5o+Q5LqkIHTDrWppxIFvIl0sImFudCI6WyLkuIvovb0geGnDoHrHjmkiLCLmjqXmlLYgamnEk3NoxY11Iiwi5L+d5a2YIGLHjm9jw7puIl19LCLkuIvovb0iOnsic3luIjpbIuS4i+i9vSB4acOgeseOaSIsIuiOt+WPliBodcOycceUIiwi5L+d5a2YIGLHjm9jw7puIl0sImFudCI6WyLkuIrkvKAgc2jDoG5nY2h1w6FuIiwi5Yig6ZmkIHNoxIFuY2jDuiIsIuWNuOi9vSB4acOoeseOaSJdfSwi5rWB6YePIjp7InN5biI6WyLmlbDmja7mtYHph48gc2jDuWrDuSBsacO6bGnDoG5nIiwi5aWX6aSQIHTDoG9jxIFuIiwi572R6YCfIHfHjm5nc8O5Il0sImFudCI6W119LCLml6Dnur8iOnsic3luIjpbIuaXoOe7syB3w7pzaMOpbmciLCLok53niZkgbMOhbnnDoSIsIldpRmkgV2lGaSJdLCJhbnQiOlsi5pyJ57q/IHnHknV4acOgbiIsIueUtee8hiBkacOgbmzHjm4iXX0sIue9kee7nCI6eyJzeW4iOlsi5LqS6IGU572RIGjDuWxpw6Fud8eObmciLCLnvZHot68gd8eObmdsw7kiLCLnur/kuIogeGnDoG5zaMOgbmciXSwiYW50IjpbIue6v+S4iyB4acOgbnhpw6AiLCLnjrDlrp4geGnDoG5zaMOtIl19LCLml6Dnur/nvZHnu5wiOnsic3luIjpbIldpRmkgV2lGaSIsIuaXoOe6v+e9kSB3w7p4acOgbnfHjm5nIiwi5peg57q/5LiK572RIHfDunhpw6BuIHNow6BuZ3fHjm5nIl0sImFudCI6WyLmnInnur/nvZHnu5wgeceSdXhpw6BuIHfHjm5nbHXDsiIsIuenu+WKqOe9kee7nCB5w61kw7JuZyB3x45uZ2x1w7IiXX0sIuaVsOaNriI6eyJzeW4iOlsi6LWE5paZIHrEq2xpw6BvIiwi5L+h5oGvIHjDrG54xKsiLCLmlbDlrZcgc2jDuXrDrCJdLCJhbnQiOltdfSwi5pWw5o2u57q/Ijp7InN5biI6WyLlhYXnlLXnur8gY2jFjW5nZGnDoG54acOgbiIsIlVTQue6vyBVU0IgeGnDoG4iLCLov57mjqXnur8gbGnDoW5qacSTeGnDoG4iXSwiYW50IjpbXX0sIuebtOaSrSI6eyJzeW4iOlsi546w5Zy655u05pKtIHhpw6BuY2jHjm5nIHpow61ixY0iLCLlrp7lhrUgc2jDrWt1w6BuZyIsIuWcqOe6v+ebtOaSrSB6w6BpeGnDoG4gemjDrWLFjSJdLCJhbnQiOlsi5b2V5pKtIGzDuWLFjSIsIuWbnuaUviBodcOtZsOgbmciXX0sIui9rOWPkSI6eyJzeW4iOlsi5YiG5LqrIGbEk254aceObmciLCLovazovb0gemh1x45ueseOaSIsIuS8oOmAkiBjaHXDoW5kw6wiXSwiYW50IjpbIuS/neeVmSBix45vbGnDuiIsIuengeiXjyBzxKtjw6FuZyJdfSwi54K56LWeIjp7InN5biI6WyLngrnotZ4gZGnHjm56w6BuIiwi6LWe6LWPIHrDoG5zaMeObmciLCLllpzmrKIgeMeQaHXEgW4iXSwiYW50IjpbIui4qSBjx45pIiwi5Y+N5a+5IGbHjm5kdcOsIiwi5beu6K+EIGNow6Bww61uZyJdfSwi5py65Zmo5Lq6Ijp7InN5biI6WyLmnLrmorDkurogasSreGnDqHLDqW4iLCLoh6rliqjmnLogesOsZMOybmdqxKsiLCJBSSBBSSJdLCJhbnQiOltdfSwi5peg5Lq65py6Ijp7InN5biI6WyLml6Dkurrpo57ooYzlmaggd8O6csOpbiBmxJNpeMOtbmdxw6wiLCLpgaXmjqfpo57mnLogecOhb2vDsm5nIGbEk2lqxKsiLCLoiKrmi43lmaggaMOhbmdwxIFpccOsIl0sImFudCI6W119LCLml6Dkurrpqb7pqbYiOnsic3luIjpbIuiHquWKqOmpvumptiB6w6xkw7JuZyBqacOgc2jHkCIsIuaZuuiDvempvumptiB6aMOsbsOpbmcgamnDoHNox5AiLCLml6Dlj7jmnLogd8O6IHPEq2rEqyJdLCJhbnQiOlsi5Lq65bel6am+6am2IHLDqW5nxY1uZyBqacOgc2jHkCIsIuaJi+WKqOmpvumptiBzaMeSdWTDsm5nIGppw6BzaMeQIl19LCLkurrlt6Xmmbrog70iOnsic3luIjpbIkFJIEFJIiwi5py65Zmo5pm66IO9IGrEq3HDrCB6aMOsbsOpbmciLCLmmbrog73np5HmioAgemjDrG7DqW5nIGvEk2rDrCJdLCJhbnQiOlsi5Lq657G75pm65oWnIHLDqW5sw6hpIHpow6xodcOsIiwi5Lyg57uf6K6h566XIGNodcOhbnTHkm5nIGrDrHN1w6BuIl19fQ=="))));
+
+function stripPinyin(text) {
+  text = text.replace(/\s*\([^)]*\)/g, '');
+  text = text.replace(/\s+[A-Z].*/g, '');
+  return text.trim();
+}
 
 // ============================================================
 // REST OF THE JAVASCRIPT (DO NOT MODIFY)
@@ -3167,6 +2876,8 @@ const LS = {
     try { localStorage.setItem(key, val); } catch(e) {}
   }
 };
+
+let isPlayingAudio = false;
 
 function buildGroups() {
   const n = VOCAB.length;
@@ -3248,50 +2959,68 @@ function toast(msg, type = '') {
 let currentAudio = null; // Track currently playing audio
 
 function speak(word) {
-  if ('speechSynthesis' in window) {
-    // If audio is playing, stop it (toggle mute)
-    if (currentAudio) {
+  try {
+    if (isPlayingAudio) return; // Prevent concurrent plays
+    
+    if (!word || !word.trim()) return;
+    word = stripPinyin(word);
+    if (!word || !word.trim()) return;
+    
+    if ('speechSynthesis' in window) {
+      // Cancel any existing speech before starting new one
       window.speechSynthesis.cancel();
-      currentAudio = null;
-      return;
+      isPlayingAudio = true;
+      
+      const u = new SpeechSynthesisUtterance(word);
+      u.lang = 'zh-CN';
+      u.rate = 0.85;
+      u.pitch = 1;
+      u.volume = 1;
+      u.onstart = () => { isPlayingAudio = true; };
+      u.onend = () => { isPlayingAudio = false; };
+      u.onerror = () => { isPlayingAudio = false; };
+      
+      // Small delay to ensure cancel completes before speak
+      setTimeout(() => {
+        window.speechSynthesis.speak(u);
+      }, 50);
     }
-    // Start new audio
-    const u = new SpeechSynthesisUtterance(word);
-    u.lang = 'en-US'; u.rate = 0.85;
-    u.onend = () => { currentAudio = null; };
-    u.onerror = () => { currentAudio = null; };
-    currentAudio = u;
-    window.speechSynthesis.speak(u);
+  } catch(e) {
+    isPlayingAudio = false;
+    console.error('speak() error:', e);
   }
-
-// Audio for sentences - with toggle support
+}
 function playCurrentSentenceAudio() {
   try {
+    if (isPlayingAudio) return; // Prevent concurrent plays
+    
     const sentEn = document.getElementById('sentEn');
-    if (sentEn) {
-      let text = sentEn.textContent;
-      if (text && text !== '—') {
-        text = text.replace(/<[^>]*>/g, '');
-        if (text.trim()) {
-          if ('speechSynthesis' in window) {
-            // Toggle: if audio is playing, stop it; otherwise play
-            if (currentAudio) {
-              window.speechSynthesis.cancel();
-              currentAudio = null;
-            } else {
-              const u = new SpeechSynthesisUtterance(text);
-              u.lang = 'en-US'; u.rate = 0.85;
-              u.onend = () => { currentAudio = null; };
-              u.onerror = () => { currentAudio = null; };
-              currentAudio = u;
-              window.speechSynthesis.speak(u);
-            }
-          }
+    if (sentEn && sentEn.textContent && sentEn.textContent.trim() !== '—') {
+      let text = sentEn.textContent.replace(/<[^>]*>/g, '');
+      text = stripPinyin(text);
+      if (text.trim()) {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          isPlayingAudio = true;
+          
+          const u = new SpeechSynthesisUtterance(text);
+          u.lang = 'zh-CN';
+          u.rate = 0.85;
+          u.pitch = 1;
+          u.volume = 1;
+          u.onstart = () => { isPlayingAudio = true; };
+          u.onend = () => { isPlayingAudio = false; };
+          u.onerror = () => { isPlayingAudio = false; };
+          
+          setTimeout(() => {
+            window.speechSynthesis.speak(u);
+          }, 50);
         }
       }
     }
-  } catch (e) { console.error('Audio error:', e); }
-}
+  } catch (e) {
+    isPlayingAudio = false;
+  }
 }
 
 function render() {
@@ -3319,13 +3048,6 @@ function render() {
   sb.classList.toggle('starred', isStarred);
 
   document.getElementById('wordDisplay').textContent = entry.word;
-  const collocationDisplay = document.getElementById('collocationDisplay');
-  if (entry.collocation) {
-    collocationDisplay.textContent = '("' + entry.collocation + '")';
-    collocationDisplay.style.display = 'block';
-  } else {
-    collocationDisplay.style.display = 'none';
-  }
   document.getElementById('pronDisplay').textContent = '[' + entry.pron + ']';
   
   // Remove any existing badge first to prevent duplicates
@@ -3358,7 +3080,7 @@ function render() {
   }
   document.getElementById('sentEn').innerHTML = sentEn;
   document.getElementById('sentZh').textContent = sentZh;
-  // sentSource display removed
+  document.getElementById('sentSource').innerHTML = sentSource;
 
   const sa = SYNAN[entry.word] || { syn: [], ant: [] };
   document.getElementById('synChips').innerHTML = sa.syn.map(w => `<span class="synan-chip syn">${w}</span>`).join('');
@@ -3690,7 +3412,14 @@ function renderQuestion() {
     document.getElementById('quizPhase1').style.display = 'block';
     document.getElementById('quizPhase2').style.display = 'none';
 
-    document.getElementById('quizSentence').innerHTML = blankWord(entry.quote_en, entry.word);
+    const escaped = entry.word.replace(/[.*+?^${}()|[\]\\]/g, '\$&');
+    let sentenceText = (entry.quote_en || '').replace(new RegExp(escaped, 'gi'), '_____');
+    document.getElementById('quizSentence').innerHTML = sentenceText;
+    const quizHintDiv = document.createElement('div');
+    quizHintDiv.style.cssText = 'font-size: 0.95rem; color: var(--muted); margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--s20); line-height: 1.5;';
+    quizHintDiv.innerHTML = entry.quote_zh || '';
+    document.getElementById('quizSentence').parentNode.appendChild(quizHintDiv);
+    
 
     const group = GROUPS[S.gIdx];
     const distractors = shuffle(group.map(w => w.word).filter(w => w !== entry.word)).slice(0, 3);
@@ -3720,9 +3449,11 @@ function renderQuestion() {
 }
 
 function renderQuizSpell(entry) {
-  const word = entry.word.toLowerCase();
-  document.getElementById('qSpellSentence').innerHTML = highlightWord(entry.ex_en, entry.word)
-    .replace(/<span class="hl">([^<]+)<\/span>/gi, '<span class="hl">_____<\/span>');
+  const word = entry.word;
+  let sentence = entry.quote_en || '';
+  const escaped = entry.word.replace(/[.*+?^${}()|[\]\\]/g, '\$&');
+  sentence = sentence.replace(new RegExp(escaped, 'gi'), '_____');
+  document.getElementById('qSpellSentence').innerHTML = sentence;
 
   const boxes = document.getElementById('qSpellBoxes');
   boxes.innerHTML = '';
@@ -3751,8 +3482,8 @@ function renderQuizSpell(entry) {
 
 function updateQSpellBoxes(typed) {
   const entry = S.quiz.questions[S.quiz.qIdx].entry;
-  const word = entry.word.toLowerCase().replace(/-/g, '');
-  const t = typed.toLowerCase();
+  const word = entry.word.replace(/-/g, '');
+  const t = typed;
   const allBoxes = document.querySelectorAll('#qSpellBoxes .spell-box');
   allBoxes.forEach((b, i) => {
     b.className = 'spell-box';
@@ -3859,6 +3590,8 @@ function quizNext() {
     render();
   }
 }
+
+
 
 function updateBoxes(typed) {
   const entry = GROUPS[S.gIdx][S.wIdx];
@@ -4227,6 +3960,7 @@ function doPrint() {
   setTimeout(() => win.print(), 400);
 }
 
+
 let flashcardState = { side: 'word', index: 0 };
 
 function speakFlashcard() {
@@ -4234,6 +3968,8 @@ function speakFlashcard() {
   const word = group[flashcardState.index].word;
   speak(word);
 }
+
+
 
 function toggleFlashcard() {
   const inner = document.getElementById('flashInner');
@@ -4281,7 +4017,7 @@ function renderFlashcard() {
   const content = document.getElementById('flashContent');
   
   label.textContent = 'Word';
-  content.innerHTML = '<div class="flashcard-word-main">' + entry.word + '</div><div class="flashcard-pron">[' + (entry.pron || '') + ']</div><div class="flashcard-pos-display">[' + (entry.part_of_speech || '') + ']</div><button class="flashcard-hear" id="flashHearBtn" onclick="speakFlashcard()">🔊 Hear</button>';
+  content.innerHTML = '<div class="flashcard-word-main">' + entry.word + '</div><div class="flashcard-pron">[' + (entry.pron || '') + ']</div><span class="badge badge-pos">[' + (entry.part_of_speech || '') + ']</span><button class="flashcard-hear" id="flashHearBtn" onclick="speakFlashcard()">🔊 Hear</button>';
   content.className = 'flashcard-content';
   inner.style.background = 'linear-gradient(160deg, rgba(14,34,48,.85), rgba(11,27,36,.95))';
   
@@ -4321,55 +4057,9 @@ function toggleFlashcardStar() {
   renderFlashcard();
 }
 
+
 // Initialize
-
-// ===== PROFESSIONAL FEATURES: Help, Settings, Progress =====
-
-function openHelpModal() {
-  document.getElementById('helpModal').style.display = 'block';
-}
-
-function closeHelpModal() {
-  document.getElementById('helpModal').style.display = 'none';
-}
-
-function toggleKeyboardHints(checked) {
-  appSettings.showKeyboardHints = checked;
-  localStorage.setItem('wtt_settings', JSON.stringify(appSettings));
-}
-
-function resetProgress() {
-  if (confirm('Reset all progress, stars, and sentences? This cannot be undone.')) {
-    localStorage.removeItem('wtt_starred');
-    localStorage.removeItem('wtt_sentences');
-    localStorage.removeItem('wtt_quiz_done');
-    location.reload();
-  }
-}
-
-function updateProgressTracking() {
-  const masteredCount = Object.keys(S.quizDone || {}).filter(k => S.quizDone[k]).length;
-  const total = VOCAB.length;
-  document.getElementById('progressBadge').textContent = masteredCount + '/' + total + ' mastered';
-  document.getElementById('progressFill').style.width = (masteredCount / total * 100) + '%';
-}
-
-// Load settings on init
-function loadSettings() {
-  // Update progress tracking if VOCAB exists
-  if (typeof VOCAB !== 'undefined') {
-    updateProgressTracking();
-  }
-}
-
-// Call on page load
-document.addEventListener('DOMContentLoaded', function() {
-  loadSettings();
-});
-
 if (VOCAB.length > 1) {
-  // Now that VOCAB is loaded, initialize settings and progress
-  loadSettings();
   render();
 } else {
   document.getElementById('wordDisplay').textContent = 'Add Data';
@@ -4398,33 +4088,6 @@ if (VOCAB.length > 1) {
     </div>
   </div>
 </div>
-<script>(function() {
-  try {
-    var themeToggle = document.getElementById("themeToggle");
-    if (!themeToggle) return;
-    var html = document.documentElement;
-    var savedTheme = "dark";
-    function applyTheme(theme) {
-      if (theme === "light") {
-        html.setAttribute("data-theme", "light");
-        document.body.setAttribute("data-theme", "light");
-        themeToggle.textContent = "☀️";
-        localStorage.setItem("wtt_app_theme", "light");
-      } else {
-        html.removeAttribute("data-theme");
-        document.body.removeAttribute("data-theme");
-        themeToggle.textContent = "🌙";
-        localStorage.setItem("wtt_app_theme", "dark");
-      }
-    }
-    applyTheme(savedTheme);
-    themeToggle.addEventListener("click", function(e) {
-      e.preventDefault();
-      var current = html.getAttribute("data-theme") || "dark";
-      applyTheme(current === "light" ? "dark" : "light");
-    });
-  } catch(e) { console.warn("Theme toggle error:", e); }
-})();
-</script>
 </body>
 </html>
+
